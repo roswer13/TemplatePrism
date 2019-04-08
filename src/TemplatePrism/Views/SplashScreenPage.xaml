@@ -13,7 +13,7 @@
                 <fftransformations:CircleTransformation />
             </ffimageloading:CachedImage.Transformations>
         </ffimageloading:CachedImage>
-        <ActivityIndicator Color="{StaticResource Accent}" IsRunning="true" />
-        <Label Text="{i18n:Translate LoadingText}" TextColor="{StaticResource Accent}" />
+        <ActivityIndicator Color="{StaticResource Accent}" IsRunning="true" HorizontalOptions="Center"/>
+        <Label Text="{i18n:Translate LoadingText}" TextColor="{StaticResource Accent}" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
     </StackLayout>
 </ContentPage>
