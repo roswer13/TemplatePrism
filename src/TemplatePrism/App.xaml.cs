@@ -66,6 +66,9 @@ namespace TemplatePrism
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage>();
             containerRegistry.RegisterForNavigation<SplashScreenPage>();
+            containerRegistry.RegisterForNavigation<HomePage>();
+            containerRegistry.RegisterForNavigation<NewsPage>();
+            containerRegistry.RegisterForNavigation<ClosetPage>();
         }
 
         protected override void OnStart()
