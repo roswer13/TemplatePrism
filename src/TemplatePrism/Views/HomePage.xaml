@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:TemplatePrism.Views;assembly=TemplatePrism"
+            x:Class="TemplatePrism.Views.HomePage"
+            Title="Closet App">
+    <!--Pages can be added as references or inline-->
+    <NavigationPage Title="News" Icon="icons_news.png">
+        <x:Arguments>
+            <local:NewsPage />
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="Closet" Icon="icons_closet.png">
+        <x:Arguments>
+            <local:ClosetPage />
+        </x:Arguments>
+    </NavigationPage>
+</TabbedPage>
