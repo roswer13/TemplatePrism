@@ -104,7 +104,7 @@ namespace TemplatePrism.Services.Api
         public async Task<HttpResponseMessage> GetWeatherAsync(string token)
         {
             var cts = new CancellationTokenSource();
-            var task = RemoteRequestAsync<HttpResponseMessage>(weatherApi.GetApi(Priority.UserInitiated).GetMakeUps(token));
+            var task = RemoteRequestAsync<HttpResponseMessage>(weatherApi.GetApi(Priority.UserInitiated).GetWeather(token));
             runningTasks.Add(task.Id, cts);
 
             return await task;
