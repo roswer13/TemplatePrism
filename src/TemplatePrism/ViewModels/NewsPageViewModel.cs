@@ -65,7 +65,7 @@ namespace TemplatePrism.ViewModels
             if (weatherInfo != null)
             {
                 Name = weatherInfo.Location.Name;
-                TempC = weatherInfo.Current.TempC + " C";
+                TempC = weatherInfo.Current.TempC + "º C";
             }
             else
                 await _pageDialogService.DisplayAlertAsync("Error", "Bad conection.", "OK");

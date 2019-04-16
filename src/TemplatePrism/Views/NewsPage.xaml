@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TemplatePrism.Views.NewsPage" NavigationPage.HasNavigationBar="false">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" x:Class="TemplatePrism.Views.NewsPage" NavigationPage.HasNavigationBar="false">
     <ContentPage.Content>
         <StackLayout Padding="10">
-            <Frame>
+            <Frame BackgroundColor="Silver">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <Label Text="{Binding Name}" />
-                    <Label Grid.Row="1" Text="{Binding TempC}" />
+                    <Label Text="{Binding Name}" HorizontalOptions="EndAndExpand" />
+                    <Label Grid.Row="1" Text="{Binding TempC}" HorizontalOptions="EndAndExpand" />
                 </Grid>
             </Frame>
         </StackLayout>
