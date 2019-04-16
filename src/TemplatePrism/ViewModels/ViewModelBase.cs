@@ -6,6 +6,9 @@ using Prism;
 using Prism.AppModel;
 using Prism.Navigation;
 using Prism.Services;
+using TemplatePrism.Exceptions;
+using TemplatePrism.Resources;
+using System.Diagnostics;
 
 namespace TemplatePrism.ViewModels
 {
@@ -111,5 +114,41 @@ namespace TemplatePrism.ViewModels
         public virtual void OnDisappearing() { }
 
         #endregion IPageLifecycleAware
+
+        public async Task RunSafe(Task task, bool ShowLoading = true, string loadingMessage = null)
+        {
+            try
+            {
+                IsBusy = ShowLoading;
+                await task;
+            }
+            catch (ConnectivityException e)
+            {
+                //_userDialogs.HideLoading();
+                Debug.WriteLine(e.ToString());
+                //await _pageDialogService.DisplayAlertAsync(AppResources.AppName, AppResources.NoNetworkConnection, AppResources.Ok);
+                IsBusy = false;
+            }
+            catch (Exception ex)
+            {
+                //_userDialogs.HideLoading();
+                Debug.WriteLine(ex.ToString());
+
+                // Do not display error when task is canceled.
+                // Ex.: Cancel get case detail task when user navigates back
+                //      to a related case.
+                //if (ex is TaskCanceledException)
+                //    await _pageDialogService.DisplayAlertAsync(AppResources.TryAgain, AppResources.TimeoutReached, AppResources.Ok);
+
+                //if (!(ex is OperationCanceledException))
+                    //await _pageDialogService.DisplayAlertAsync(AppResources.AppName, $"{AppResources.AnErrorHasOcurred}: {ex.Message}", AppResources.Ok);
+
+                IsBusy = false;
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
     }
 }

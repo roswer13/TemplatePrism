@@ -24,7 +24,7 @@ namespace TemplatePrism.Models
         public string TzId { get; set; }
 
         [JsonProperty("localtime_epoch")]
-        public int LocaltimeEpoch { get; set; }
+        public long LocaltimeEpoch { get; set; }
 
         [JsonProperty("localtime")]
         public string Localtime { get; set; }

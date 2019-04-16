@@ -5,19 +5,18 @@ using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Acr.UserDialogs;
 using Fusillade;
-using Plugin.Connectivity;
-using Plugin.Connectivity.Abstractions;
 using Polly;
 using Refit;
+using TemplatePrism.Exceptions;
+using Xamarin.Essentials;
 
 namespace TemplatePrism.Services.Api
 {
     public class ApiManager : IApiManager
     {
-        IUserDialogs _userDialogs = UserDialogs.Instance;
-        IConnectivity _connectivity = CrossConnectivity.Current;
+        public NetworkAccess NetworkAccess { get; set; }
+
         readonly IApiService<IWeatherApi> weatherApi;
         public bool IsConnected { get; set; }
         public bool IsReachable { get; set; }
@@ -28,17 +27,17 @@ namespace TemplatePrism.Services.Api
         public ApiManager(IApiService<IWeatherApi> _weatherApi)
         {
             weatherApi = _weatherApi;
-            IsConnected = _connectivity.IsConnected;
-            _connectivity.ConnectivityChanged += OnConnectivityChanged;
+            NetworkAccess = Connectivity.NetworkAccess;
+            Connectivity.ConnectivityChanged += OnConnectivityChanged;
         }
 
         void OnConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
         {
-            IsConnected = e.IsConnected;
+            NetworkAccess = e.NetworkAccess;
 
-            if (!e.IsConnected)
+            if (e.NetworkAccess == NetworkAccess.None)
             {
-                // Cancel All Running Task
+                // Cancel all running tasks
                 var items = runningTasks.ToList();
                 foreach (var item in items)
                 {
@@ -54,45 +53,31 @@ namespace TemplatePrism.Services.Api
         {
             var data = new TData();
 
-            if (!IsConnected)
+            NetworkAccess = Connectivity.NetworkAccess;
+            if (NetworkAccess == NetworkAccess.None)
             {
-                var strngResponse = "There's not a network connection";
+                /*
                 data.StatusCode = HttpStatusCode.BadRequest;
-                data.Content = new StringContent(strngResponse);
-
-                _userDialogs.Toast(strngResponse, TimeSpan.FromSeconds(1));
+                data.Content = new StringContent(AppResources.NoNetworkConnection);
                 return data;
-            }
-
-            IsReachable = await _connectivity.IsRemoteReachable("");
-
-            if (!IsReachable)
-            {
-                var strngResponse = "There's not an internet connection";
-                data.StatusCode = HttpStatusCode.BadRequest;
-                data.Content = new StringContent(strngResponse);
-
-                _userDialogs.Toast(strngResponse, TimeSpan.FromSeconds(1));
-                return data;
+                */
+                throw new ConnectivityException();
             }
 
             data = await Policy
             .Handle<WebException>()
             .Or<ApiException>()
             .Or<TaskCanceledException>()
+            .OrResult<TData>(r => r.StatusCode == HttpStatusCode.Unauthorized)
             .WaitAndRetryAsync
             (
-                retryCount: 1,
+                retryCount: 0,
                 sleepDurationProvider: retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt))
             )
             .ExecuteAsync(async () =>
             {
                 var result = await task;
 
-                if (result.StatusCode == HttpStatusCode.Unauthorized)
-                {
-                    //Logout the user 
-                }
                 runningTasks.Remove(task.Id);
 
                 return result;

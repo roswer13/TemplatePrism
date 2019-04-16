@@ -13,11 +13,15 @@ using FFImageLoading.Helpers;
 using Prism.Logging;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
+using TemplatePrism.Services.Weather;
+using TemplatePrism.Services.Api;
+using TemplatePrism.Helpers;
 
 namespace TemplatePrism
 {
     public partial class App
     {
+        static IApiService<IWeatherApi> devSharePointApi = new ApiService<IWeatherApi>(Secrets.AppServiceWeather);
         /* 
          * NOTE: 
          * The Xamarin Forms XAML Previewer in Visual Studio uses System.Activator.CreateInstance.
@@ -69,6 +73,11 @@ namespace TemplatePrism
             containerRegistry.RegisterForNavigation<HomePage>();
             containerRegistry.RegisterForNavigation<NewsPage>();
             containerRegistry.RegisterForNavigation<ClosetPage>();
+
+            containerRegistry.Register<IWeatherService, WeatherService>();
+            containerRegistry.RegisterInstance(devSharePointApi);
+
+            containerRegistry.RegisterSingleton<IApiManager, ApiManager>();
         }
 
         protected override void OnStart()

@@ -14,7 +14,9 @@ namespace TemplatePrism.Services.Api
         {
             createClient = messageHandler =>
             {
-                var client = new HttpClient(messageHandler)
+                HttpClient client;
+
+                client = new HttpClient(new HttpLoggingHandler(messageHandler))
                 {
                     BaseAddress = new Uri(apiBaseAddress)
                 };

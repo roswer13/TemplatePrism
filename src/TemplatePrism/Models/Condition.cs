@@ -12,6 +12,6 @@ namespace TemplatePrism.Models
         public string Icon { get; set; }
 
         [JsonProperty("code")]
-        public int Code { get; set; }
+        public long Code { get; set; }
     }
 }

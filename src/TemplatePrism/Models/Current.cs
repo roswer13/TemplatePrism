@@ -6,19 +6,19 @@ namespace TemplatePrism.Models
     public class Current
     {
         [JsonProperty("last_updated_epoch")]
-        public int LastUpdatedEpoch { get; set; }
+        public long LastUpdatedEpoch { get; set; }
 
         [JsonProperty("last_updated")]
         public string LastUpdated { get; set; }
 
         [JsonProperty("temp_c")]
-        public int TempC { get; set; }
+        public long TempC { get; set; }
 
         [JsonProperty("temp_f")]
-        public int TempF { get; set; }
+        public double TempF { get; set; }
 
         [JsonProperty("is_day")]
-        public int IsDay { get; set; }
+        public long IsDay { get; set; }
 
         [JsonProperty("condition")]
         public Condition Condition { get; set; }
@@ -27,46 +27,46 @@ namespace TemplatePrism.Models
         public double WindMph { get; set; }
 
         [JsonProperty("wind_kph")]
-        public int WindKph { get; set; }
+        public long WindKph { get; set; }
 
         [JsonProperty("wind_degree")]
-        public int WindDegree { get; set; }
+        public long WindDegree { get; set; }
 
         [JsonProperty("wind_dir")]
         public string WindDir { get; set; }
 
         [JsonProperty("pressure_mb")]
-        public int PressureMb { get; set; }
+        public long PressureMb { get; set; }
 
         [JsonProperty("pressure_in")]
         public double PressureIn { get; set; }
 
         [JsonProperty("precip_mm")]
-        public int PrecipMm { get; set; }
+        public long PrecipMm { get; set; }
 
         [JsonProperty("precip_in")]
-        public int PrecipIn { get; set; }
+        public long PrecipIn { get; set; }
 
         [JsonProperty("humidity")]
-        public int Humidity { get; set; }
+        public long Humidity { get; set; }
 
         [JsonProperty("cloud")]
-        public int Cloud { get; set; }
+        public long Cloud { get; set; }
 
         [JsonProperty("feelslike_c")]
-        public double FeelslikeC { get; set; }
+        public long FeelslikeC { get; set; }
 
         [JsonProperty("feelslike_f")]
         public double FeelslikeF { get; set; }
 
         [JsonProperty("vis_km")]
-        public int VisKm { get; set; }
+        public long VisKm { get; set; }
 
         [JsonProperty("vis_miles")]
-        public int VisMiles { get; set; }
+        public long VisMiles { get; set; }
 
         [JsonProperty("uv")]
-        public int Uv { get; set; }
+        public long Uv { get; set; }
 
         [JsonProperty("gust_mph")]
         public double GustMph { get; set; }
