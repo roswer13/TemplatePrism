@@ -104,6 +104,7 @@
     <AndroidResource Include="Resources\layout\SplashScreen.axml" />
     <AndroidResource Include="Resources\drawable\icons_closet.png" />
     <AndroidResource Include="Resources\drawable\icons_news.png" />
+    <AndroidResource Include="Resources\drawable\image_sunny.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />

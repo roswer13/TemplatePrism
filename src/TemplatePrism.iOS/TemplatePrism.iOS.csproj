@@ -135,6 +135,7 @@
     <BundleResource Include="Resources\hamburger@2x.png" />
     <BundleResource Include="Resources\icons_news%402x.png" />
     <BundleResource Include="Resources\icons_closet%402x.png" />
+    <BundleResource Include="Resources\image_sunny%402x.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="Resources\iTunesArtwork@1x.png" />
