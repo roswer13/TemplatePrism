@@ -1,9 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TemplatePrism.Views.ClosetPage"
-             NavigationPage.HasNavigationBar="false">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TemplatePrism.Views.ClosetPage" NavigationPage.HasNavigationBar="false">
     <ContentPage.Content>
-    <Label Text="Closet Page" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+        <ScrollView>
+            <Grid BackgroundColor="Silver" ColumnSpacing="1" RowSpacing="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Agosto 2010" Grid.ColumnSpan="7" HorizontalTextAlignment="Center" Margin="5" />
+                <!-- Row one-->
+                <Label Text="1" Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="1" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="1" Grid.Column="3" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="1" Grid.Column="4" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="1" Grid.Column="5" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="1" Grid.Column="6" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <!-- Row two-->
+                <Label Text="1" Grid.Row="2" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="2" Grid.Column="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="2" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="2" Grid.Column="3" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="2" Grid.Column="4" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="2" Grid.Column="5" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="2" Grid.Column="6" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <!-- Row three-->
+                <Label Text="1" Grid.Row="3" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="3" Grid.Column="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="3" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="3" Grid.Column="3" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="3" Grid.Column="4" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="3" Grid.Column="5" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="3" Grid.Column="6" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <!-- Row four-->
+                <Label Text="1" Grid.Row="4" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="4" Grid.Column="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="4" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="4" Grid.Column="3" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="4" Grid.Column="4" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="4" Grid.Column="5" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="4" Grid.Column="6" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <!-- Row five-->
+                <Label Text="1" Grid.Row="5" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="5" Grid.Column="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="5" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="5" Grid.Column="3" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="5" Grid.Column="4" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="5" Grid.Column="5" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <Label Text="1" Grid.Row="5" Grid.Column="6" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="White" />
+                <!-- Row five-->
+                <StackLayout Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="7" Padding="10">
+                    <Label Text="Text" />
+                </StackLayout>
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
