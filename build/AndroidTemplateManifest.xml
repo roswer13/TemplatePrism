@@ -5,6 +5,6 @@
           package="com.company.templateprism">
     <uses-sdk android:minSdkVersion="21" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <application android:label="TemplatePrism">
+    <application android:label="Closet App">
     </application>
 </manifest>

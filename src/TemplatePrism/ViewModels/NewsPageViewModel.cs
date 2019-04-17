@@ -15,6 +15,10 @@ namespace TemplatePrism.ViewModels
         readonly IWeatherService _weatherService;
         #endregion
 
+        #region Fields
+        string token = "c457cf88999b40f8b2772318191204";
+        #endregion
+
         #region Constructors
         public NewsPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService,
                                  IDeviceService deviceService, IWeatherService weatherService)
@@ -54,18 +58,21 @@ namespace TemplatePrism.ViewModels
         #endregion
 
         #region Propertie
-        public ApiWeather WeatherInfo { get; set; }
         public string Name { get; set; }
         public string TempC { get; set; }
+        public string ConditionText { get; set; }
+        public string ConditionIcon { get; set; }
         #endregion
 
         async Task RetrieveCasesData()
         {
-            var weatherInfo = await _weatherService.GetWeather("c457cf88999b40f8b2772318191204");
+            var weatherInfo = await _weatherService.GetWeather(token);
             if (weatherInfo != null)
             {
                 Name = weatherInfo.Location.Name;
-                TempC = weatherInfo.Current.TempC + " C";
+                TempC = weatherInfo.Current.TempC + "º C";
+                ConditionText = weatherInfo.Current.Condition.Text;
+                ConditionIcon = weatherInfo.Current.Condition.Icon.Split(new[] { "/64x64/" }, StringSplitOptions.None)[1];
             }
             else
                 await _pageDialogService.DisplayAlertAsync("Error", "Bad conection.", "OK");

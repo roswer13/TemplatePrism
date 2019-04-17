@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TemplatePrism.Views.NewsPage"
-             NavigationPage.HasNavigationBar="false">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" x:Class="TemplatePrism.Views.NewsPage" NavigationPage.HasNavigationBar="false">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{Binding Name}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
-            <Label Text="{Binding TempC}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="10">
+            <StackLayout VerticalOptions="CenterAndExpand" IsVisible="{Binding IsBusy}">
+                <ActivityIndicator IsRunning="true" Color="Gray" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+            <StackLayout IsVisible="{Binding Path=IsBusy, Converter={StaticResource inverseBoolConverter}}">
+                <Frame BackgroundColor="Silver">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <ffimageloading:CachedImage Source="{Binding ConditionIcon}" Grid.Row="0" Grid.Column="0" />
+                        <Label Text="{Binding ConditionText}" Grid.Row="1" Grid.Column="0" TextColor="White" />
+                        <Label Text="{Binding Name}" Grid.Column="1" Grid.Row="0" VerticalTextAlignment="Center" HorizontalOptions="End" TextColor="White" />
+                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding TempC}" HorizontalOptions="End" FontSize="Large" TextColor="White" Font="Bold,18" />
+                    </Grid>
+                </Frame>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
