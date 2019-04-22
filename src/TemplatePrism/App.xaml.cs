@@ -16,6 +16,9 @@ using Xamarin.Forms.Internals;
 using TemplatePrism.Services.Weather;
 using TemplatePrism.Services.Api;
 using TemplatePrism.Helpers;
+using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter;
 
 namespace TemplatePrism
 {
@@ -83,6 +86,7 @@ namespace TemplatePrism
         protected override void OnStart()
         {
             // Handle when your app starts
+            AppCenter.Start("ios=0857e608-1120-44d8-8b1e-ea2f143803ac;android=5af366fe-418e-4c61-b2c9-01767b6cb5d8;", typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnSleep()
